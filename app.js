@@ -196,10 +196,40 @@ function importNotes(file) {
   reader.readAsText(file);
 }
 
+/* ---------- Burger menu ---------- */
+const btnMenuEl = document.getElementById("btn-menu");
+const menuEl = document.getElementById("menu");
+
+function closeMenu() {
+  menuEl.hidden = true;
+  btnMenuEl.setAttribute("aria-expanded", "false");
+}
+
+btnMenuEl.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const opening = menuEl.hidden;
+  menuEl.hidden = !opening;
+  btnMenuEl.setAttribute("aria-expanded", String(opening));
+});
+
+document.addEventListener("click", (e) => {
+  if (!menuEl.hidden && !e.target.closest(".menu-wrap")) closeMenu();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMenu();
+});
+
 /* ---------- Events ---------- */
 document.getElementById("btn-new").addEventListener("click", createNote);
-document.getElementById("btn-export").addEventListener("click", exportNotes);
-document.getElementById("btn-import").addEventListener("click", () => importFileEl.click());
+document.getElementById("btn-export").addEventListener("click", () => {
+  closeMenu();
+  exportNotes();
+});
+document.getElementById("btn-import").addEventListener("click", () => {
+  closeMenu();
+  importFileEl.click();
+});
 document.getElementById("btn-delete").addEventListener("click", () => {
   if (activeId) deleteNote(activeId);
 });

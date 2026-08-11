@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "notey-v3";
+const CACHE_NAME = "notey-v4";
 const ASSETS = [
   ".",
   "index.html",
