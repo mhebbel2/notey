@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notey</title>
+  <meta name="description" content="A simple markdown notes app.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a1a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand">Notey</h1>
+    <div class="topbar-actions">
+      <button id="btn-new" class="btn btn-primary" title="New note">+ New</button>
+      <button id="btn-export" class="btn" title="Export all notes as JSON">Export</button>
+      <button id="btn-import" class="btn" title="Import notes from JSON">Import</button>
+      <input type="file" id="import-file" accept="application/json,.json" hidden>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <ul id="note-list" class="note-list"></ul>
+      <p id="empty-list" class="empty-hint">No notes yet.<br>Click “+ New” to start.</p>
+    </aside>
+
+    <section class="editor">
+      <div id="editor-empty" class="editor-empty">Select a note or create a new one.</div>
+      <div id="editor-pane" class="editor-pane" hidden>
+        <textarea id="note-content" class="note-content" placeholder="Write your note in markdown…" spellcheck="false"></textarea>
+        <div class="editor-footer">
+          <span id="note-meta" class="note-meta"></span>
+          <button id="btn-delete" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
