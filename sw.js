@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "notey-v2";
+const CACHE_NAME = "notey-v3";
 const ASSETS = [
   ".",
   "index.html",
@@ -10,6 +10,8 @@ const ASSETS = [
   "icon.svg",
   "icons/icon-192.png",
   "icons/icon-512.png",
+  "icons/favicon-16.png",
+  "icons/favicon-32.png",
 ];
 
 self.addEventListener("install", (event) => {
